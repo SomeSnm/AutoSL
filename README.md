@@ -13,10 +13,10 @@ y = datasets.load_breast_cancer()['target']
 
 train_set, test_set, train_target, test_target = train_test_split(X, y, test_size=0.33,stratify = y)
 
-tst = AutoSL(estimators=['RandomForestClassifier','AdaBoostClassifier'], 
+tst = AutoSL(estimators=['RandomForestClassifier', 'AdaBoostClassifier'], 
              estimator_params = [{'n_estimators': [5, 10], 'max_depth': [5, 30]}, 
                                  {'n_estimators': [10, 100], 'learning_rate': [0.01, 10]}],
              scoring = ['accuracy', 'f1_macro','roc_auc'],
-             dim_red = ['PCA',None], dim_red_params=[{'n_components':[10,0.8]}, None], name='cancer_data')
+             dim_red = ['PCA',None], dim_red_params = [{'n_components':[10, 0.8]}, None], name='cancer_data')
 result = tst.fit_predict(train_set, test_set, train_target, test_target)
 ```
