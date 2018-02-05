@@ -11,7 +11,7 @@ from AutoSl import AutoSL
 X = datasets.load_breast_cancer()['data']
 y = datasets.load_breast_cancer()['target']
 
-train_set, test_set, train_target, test_target = train_test_split(X, y, test_size=0.33,stratify = y)
+train_set, test_set, train_target, test_target = train_test_split(X, y, test_size=0.33, stratify = y)
 
 tst = AutoSL(estimators=['RandomForestClassifier', 'AdaBoostClassifier'], 
              estimator_params = [{'n_estimators': [5, 10], 'max_depth': [5, 30]}, 
